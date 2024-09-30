@@ -1,0 +1,6 @@
+@BritishGarmentsMVC_HostAddress = http://localhost:5182
+
+GET {{BritishGarmentsMVC_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

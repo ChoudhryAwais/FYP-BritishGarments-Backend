@@ -11,7 +11,7 @@ namespace BritishGarmentsMVC.Controllers
         private readonly ISaleService _saleService = saleService;
 
         // GET: api/Sale
-        [HttpGet("AllSales")]
+        [HttpGet("All")]
         public IActionResult GetAllSales()
         {
             var sales = _saleService.GetAllSales();
@@ -19,13 +19,13 @@ namespace BritishGarmentsMVC.Controllers
         }
 
         // POST: api/Sale
-        [HttpPost("AddSale")]
+        [HttpPost("Add")]
         public IActionResult AddSale([FromBody] Sale sale)
         {
             if (ModelState.IsValid)
             {
-                _saleService.AddSale(sale);
-                return Ok(sale);
+                int saleId = _saleService.AddSale(sale);
+                return Ok(new { SaleID = saleId, Message = "Sale added successfully" });
             }
             return BadRequest(ModelState);
         }
@@ -51,8 +51,8 @@ namespace BritishGarmentsMVC.Controllers
         }
 
         // POST: api/Sale/{saleId}/details
-        [HttpPost("{saleId}/details")]
-        public IActionResult AddSalesDetail([FromBody] SalesDetail salesDetail)
+        [HttpPost("Details/Add")]
+        public IActionResult AddSalesDetail([FromBody] IEnumerable<SalesDetail> salesDetail)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +63,7 @@ namespace BritishGarmentsMVC.Controllers
         }
 
         // DELETE: api/Sale/details/{saleDetailId}
-        [HttpDelete("details/{saleDetailId}")]
+        [HttpDelete("Details/{saleDetailId}")]
         public async Task<IActionResult> DeleteSaleDetail(int saleDetailId)
         {
             await _saleService.DeleteSaleDetailAsync(saleDetailId);

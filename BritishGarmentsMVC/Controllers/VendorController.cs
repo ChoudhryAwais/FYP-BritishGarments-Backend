@@ -1,6 +1,5 @@
 ﻿using BritishGarmentsMVC.Models;
 using BritishGarmentsMVC.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BritishGarmentsMVC.Controllers
@@ -14,7 +13,7 @@ namespace BritishGarmentsMVC.Controllers
 
         // GET: api/vendors
         [HttpGet("GetAll")]
-        public ActionResult<IEnumerable<Vendor>> GetCategories()
+        public ActionResult<IEnumerable<Vendor>> GetVendors()
         {
             var vendors = _vendorService.GetAllVendors();
             return Ok(vendors);

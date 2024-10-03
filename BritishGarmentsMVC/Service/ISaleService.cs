@@ -5,10 +5,10 @@ namespace BritishGarmentsMVC.Service
     public interface ISaleService
     {
         IEnumerable<Sale> GetAllSales();
-        void AddSale(Sale sale);
+        int AddSale(Sale sale);
         Task DeleteSaleAsync(int saleId);
         IEnumerable<SalesDetail> GetSalesDetailBySaleId(int saleId);
-        void AddSalesDetail(SalesDetail saleDetail);
+        void AddSalesDetail(IEnumerable<SalesDetail> saleDetail);
         Task DeleteSaleDetailAsync(int saleDetailId);
 
     }
@@ -22,19 +22,12 @@ namespace BritishGarmentsMVC.Service
             return [.. _context.Sales];
         }
 
-        public void AddSale(Sale sale)
+        public int AddSale(Sale sale)
         {
-            var lastSale = _context.Sales.OrderByDescending(v => v.SaleID).FirstOrDefault();
-            if (lastSale != null)
-            {
-                sale.SaleID = lastSale.SaleID + 1;
-            }
-            else
-            {
-                sale.SaleID = 1;
-            }
             _context.Sales.Add(sale);
             _context.SaveChanges();
+
+            return sale.SaleID;
         }
 
         public async Task DeleteSaleAsync(int saleId)
@@ -53,18 +46,13 @@ namespace BritishGarmentsMVC.Service
             return [.. _context.SalesDetails.Where(p => p.SaleID == saleId)];
         }
 
-        public void AddSalesDetail(SalesDetail saleDetail)
+        public void AddSalesDetail(IEnumerable<SalesDetail> saleDetails)
         {
-            var lastSaleDetail = _context.SalesDetails.OrderByDescending(v => v.SalesDetailID).FirstOrDefault();
-            if (lastSaleDetail != null)
+            foreach (var saleDetail in saleDetails)
             {
-                saleDetail.SalesDetailID = lastSaleDetail.SalesDetailID + 1;
+                _context.SalesDetails.Add(saleDetail);
             }
-            else
-            {
-                saleDetail.SalesDetailID = 1;
-            }
-            _context.SalesDetails.Add(saleDetail);
+
             _context.SaveChanges();
         }
 

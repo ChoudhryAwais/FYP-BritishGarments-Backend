@@ -299,29 +299,8 @@
   },
   {
     "ContainingType": "BritishGarmentsMVC.Controllers.SaleController",
-    "Method": "AddSalesDetail",
-    "RelativePath": "api/Sale/{saleId}/details",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "salesDetail",
-        "Type": "BritishGarmentsMVC.Models.SalesDetail",
-        "IsRequired": true
-      },
-      {
-        "Name": "saleId",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BritishGarmentsMVC.Controllers.SaleController",
     "Method": "AddSale",
-    "RelativePath": "api/Sale/AddSale",
+    "RelativePath": "api/Sale/Add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -337,7 +316,7 @@
   {
     "ContainingType": "BritishGarmentsMVC.Controllers.SaleController",
     "Method": "GetAllSales",
-    "RelativePath": "api/Sale/AllSales",
+    "RelativePath": "api/Sale/All",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -347,7 +326,7 @@
   {
     "ContainingType": "BritishGarmentsMVC.Controllers.SaleController",
     "Method": "DeleteSaleDetail",
-    "RelativePath": "api/Sale/details/{saleDetailId}",
+    "RelativePath": "api/Sale/Details/{saleDetailId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -355,6 +334,22 @@
       {
         "Name": "saleDetailId",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BritishGarmentsMVC.Controllers.SaleController",
+    "Method": "AddSalesDetail",
+    "RelativePath": "api/Sale/Details/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "salesDetail",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BritishGarmentsMVC.Models.SalesDetail, BritishGarmentsMVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
@@ -430,7 +425,7 @@
   },
   {
     "ContainingType": "BritishGarmentsMVC.Controllers.VendorController",
-    "Method": "GetCategories",
+    "Method": "GetVendors",
     "RelativePath": "api/Vendor/GetAll",
     "HttpMethod": "GET",
     "IsController": true,

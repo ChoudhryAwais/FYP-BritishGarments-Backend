@@ -14,4 +14,9 @@
 
     }
 
+    public class StockUpdate
+    {
+        public int Stock { get; set; }
+    }
+
 }

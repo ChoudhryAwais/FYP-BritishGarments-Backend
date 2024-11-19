@@ -274,3 +274,7 @@ D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishG
 D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishGarmentsMVC\obj\Debug\net8.0\BritishGarmentsMVC.genruntimeconfig.cache
 D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishGarmentsMVC\obj\Debug\net8.0\ref\BritishGarmentsMVC.dll
 D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishGarmentsMVC\obj\Debug\net8.0\BritishGarmentsMVC.sourcelink.json
+D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishGarmentsMVC\bin\Debug\net8.0\BritishGarmentsMVC.staticwebassets.endpoints.json
+D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishGarmentsMVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishGarmentsMVC\obj\Debug\net8.0\staticwebassets\msbuild.BritishGarmentsMVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Virtual University\Final Year Project\Source Code\BritishGarmentsMVC\BritishGarmentsMVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

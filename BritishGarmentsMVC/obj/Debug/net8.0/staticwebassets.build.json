@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "qxdAqxTU/LewnW6t89XEGjtk5lQBdqVwr0ndhrcVAeY=",
+  "Hash": "4Z5s5cJiRsB9qi0/9MkjFxqbUJAN44NNH/j1avyOv2A=",
   "Source": "BritishGarmentsMVC",
   "BasePath": "_content/BritishGarmentsMVC",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

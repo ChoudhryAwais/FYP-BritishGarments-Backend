@@ -9,6 +9,8 @@ namespace BritishGarmentsMVC.Service
         void AddProduct(Product product);
         IEnumerable<Product> GetProductById(int productId);
         Task DeleteProductAsync(int productId);
+        Task UpdateProduct(Product product);
+
     }
     public class ProductService(ApplicationDbContext context) : IProductService
     {
@@ -49,6 +51,12 @@ namespace BritishGarmentsMVC.Service
         public IEnumerable<Product> GetProductsByCategoryId(int categoryId)
         {
             return [.. _context.Products.Where(p => p.CategoryID == categoryId)];
+        }
+
+        public async Task UpdateProduct(Product product)
+        {
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
         }
     }
 }

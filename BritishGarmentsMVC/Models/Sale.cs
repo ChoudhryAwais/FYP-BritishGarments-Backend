@@ -20,5 +20,8 @@
 
         public string ShippingAddress { get; set; } // Shipping address for the sale
     }
-
+    public class ApproveSale
+    {
+        public string Status { get; set; }
+    }
 }

@@ -37,7 +37,6 @@ namespace BritishGarmentsMVC.Service
         {
             return [.. _context.Vendors.Where(p => p.VendorID == vendorId)];
         }
-
         public async Task DeleteVendorAsync(int vendorId)
         {
             var vendor = await _context.Vendors.FindAsync(vendorId);

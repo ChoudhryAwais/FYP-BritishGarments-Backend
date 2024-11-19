@@ -1,7 +1,7 @@
 ﻿using BritishGarmentsMVC.Models;
 using BritishGarmentsMVC.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BritishGarmentsMVC.Controllers
 {
@@ -61,6 +61,39 @@ namespace BritishGarmentsMVC.Controllers
                 return NotFound();
             }
             return Ok(products);
+        }
+
+        // PATCH: api/sales/{id}
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> ApproveSale(int id, [FromBody] StockUpdate updateModel)
+        {
+            if (updateModel == null)
+            {
+                return BadRequest("Invalid sale data.");
+            }
+            try
+            {
+                var products = _productService.GetProductById(id);
+                var product = products.FirstOrDefault();
+                if (product == null)
+                {
+                    return NotFound("Product not found.");
+                }
+
+                if (updateModel.Stock>0 && product.Stock>0)
+                {
+                    product.Stock = product.Stock - updateModel.Stock;
+                }
+
+                await _productService.UpdateProduct(product);
+
+                return Ok(product); // 204 No Content response when the update is successful
+            }
+            catch (Exception ex)
+            {
+                // Log the error as necessary
+                return StatusCode(500, "An error occurred while updating the sale.");
+            }
         }
     }
 }
